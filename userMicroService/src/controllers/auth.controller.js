@@ -65,7 +65,7 @@ export const Login = async (req, res) => {
         
         const token=await GenerateToken(user._id,email);
 
-        return res.status(200).json(new APIResponse("User Logined Successfully !", 200,token))
+        return res.status(200).json(new APIResponse("User Logined Successfully !", 200,{token:token,name:user.name,role:"user"}))
     } catch (error) {
         return res.status(500).json(new APIError("Error : " + error.message, 500));
     }

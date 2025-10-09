@@ -1,13 +1,13 @@
-import express from "express";
-import expressProxy from "express-http-proxy";
+// import express from "express";
+// import expressProxy from "express-http-proxy";
 
 
 
-const PORT = 7000;
-const app = express();
+// const PORT = 7000;
+// const app = express();
 
-app.use("/user", expressProxy("http://localhost:7001"));
+// app.use("/user", expressProxy("http://localhost:7001"));
 
-app.listen(PORT, () => {
-  console.log(`API Gateway running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`API Gateway running on port ${PORT}`);
+// });

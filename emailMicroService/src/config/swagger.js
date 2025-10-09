@@ -11,7 +11,7 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: "http://192.168.1.12:7001/",
+                url: "http://192.168.1.12:7002/",
             },
         ],
         components: {
@@ -30,8 +30,7 @@ const swaggerOptions = {
         ],
     },
     apis: [
-        "./src/routes/auth.routes.js",
-        "./src/routes/support.route.js"
+        "./src/routes/email.route.js",
     ],
 };
 

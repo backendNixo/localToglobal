@@ -4,17 +4,16 @@ import { connectDB } from "./db/db.js";
 import authRoutes from "./routes/auth.routes.js";
 import dotenv from "dotenv";
 import {swaggerSpec} from "../src/config/swagger.js";
-import {ConnectRabbitMQ} from "../rabbit.js"
 import swaggerUI from "swagger-ui-express";
 import bodyParser from "body-parser";
 import cors from "cors";
 dotenv.config({
     path: './.env'
 });
-ConnectRabbitMQ();
+
 const app = express();
 app.use(cors({
-    origin:"",
+    origin:process.env.ORIGIN,
     credentials:true
 }))
 
