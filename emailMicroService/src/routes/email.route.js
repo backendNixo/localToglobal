@@ -1,4 +1,5 @@
 import {addEmail,sendEmail} from "../controller/email.controller.js";
+import { VerifyToken } from "../middlewares/verifyToken.js";
 import express from "express";
 
 const router=express.Router();
@@ -25,18 +26,18 @@ const router=express.Router();
  *       200:
  *         description: Email Added Successfully!
  */
-router.route('/add-email').post(addEmail);
+router.route('/add-email').post(VerifyToken,addEmail);
 
 /**
  * @swagger
  * /send-email:
- *   get:
+ *   post:
  *     summary: Send Email
  *     tags: [Email Apis]
  *     responses:
  *       200:
  *         description: Email Send Successfully!
  */
-router.route('/send-email').get(sendEmail);
+router.route('/send-email').post(VerifyToken,sendEmail);
 
 export default router;

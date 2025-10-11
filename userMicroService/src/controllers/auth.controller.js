@@ -30,7 +30,8 @@ export const Register = async (req, res) => {
             name,
             email,
             password: hashedpassword,
-            mobileNumber
+            mobileNumber,
+            role:req.body.role??"user"
         })
 
         return res.status(200).json(new APIResponse("User Registered Successfully !", 200))
@@ -63,7 +64,7 @@ export const Login = async (req, res) => {
             return res.status(400).json(new APIError("User Credetial Not Match", 400));
         }
         
-        const token=await GenerateToken(user._id,email);
+        const token=await GenerateToken(user._id,user.role);
 
         return res.status(200).json(new APIResponse("User Logined Successfully !", 200,{token:token,name:user.name,role:"user"}))
     } catch (error) {

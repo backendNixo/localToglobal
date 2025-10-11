@@ -20,6 +20,11 @@ mobileNumber:{
     type:String,
     required:true,
     trim:true
+},
+role:{
+    type:String,
+    enum:["admin","user"],
+    default:"user"
 }
 },{timestamps:true});
 

@@ -19,7 +19,7 @@ export const addEmail = async (req, res) => {
         QueueArray.push({ email: emailTo, message: message });
         console.log(QueueArray);
         
-        return res.status(200).json(new APIResponse("Email Send Successfully !", 200))
+        return res.status(200).json(new APIResponse("Email added Successfully !", 200))
     } catch (error) {
         return res.status(500).json(new APIError("Error : ", error.message, 500))
     }

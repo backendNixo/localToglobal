@@ -1,6 +1,6 @@
 import {createSupport} from "../controllers/support.controller.js";
 import express from "express";
-import {VerifyToken} from "../routes/auth.routes.js"
+import {VerifyToken} from "../middlewares/VerifyToken.js"
 const router=express.Router();
 
 

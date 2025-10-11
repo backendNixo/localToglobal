@@ -3,6 +3,11 @@ import cors from "cors";
 import { swaggerSpec } from "./config/swagger.js";
 import swaggerUi from "swagger-ui-express";
 import emailRoutes from "./routes/email.route.js";
+import dotenv from "dotenv";
+
+dotenv.config({
+    path:'./.env'
+})
 const app=express();
 
 app.use(express.json());
