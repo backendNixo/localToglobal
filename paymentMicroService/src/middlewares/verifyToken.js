@@ -17,6 +17,6 @@ export const VerifyToken=async(req,res,next)=>{
         next();
     } catch (error) {
         console.error("JWT verification failed:", error);
-    return res.status(401).json(new APIError("Invalid or expired token",401));
+    return res.status(400).json(new APIError("Invalid or expired token",400));
     }
 }

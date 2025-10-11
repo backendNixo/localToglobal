@@ -40,6 +40,7 @@ export const paymentCallBack = async (req, res) => {
     const { planId, transactionId } = req.body;
 
     const buyPlan = await BuyPlan.findOne({ planId:planId, userId: req.user.id });
+
     if (!buyPlan) {
       return res.status(400).json(new APIError("Plan Not found", 400));
     }
@@ -48,6 +49,7 @@ export const paymentCallBack = async (req, res) => {
     buyPlan.transactionId = transactionId||"njdnfyeuryjfjdhs"
     buyPlan.purchaseDate = new Date();
     buyPlan.isActive = true;
+
     await buyPlan.save();
 
     return res.status(200).json(new APIResponse("Payment success", 200, buyPlan));
@@ -58,6 +60,7 @@ export const paymentCallBack = async (req, res) => {
 
 export const GetTransactionHistory = async (req, res) => {
   try {
+    
     const transactions = await BuyPlan.find({ userId:req.user.id });
 
     if (transactions.length==0) {

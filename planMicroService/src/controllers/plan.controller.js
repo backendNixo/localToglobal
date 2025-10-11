@@ -10,12 +10,12 @@ export const CreatePlan = async (req, res) => {
     if (!planName || !amount) {
       return res.status(400).json(new APIError("All fields are required", 400));
     }
-
+  
     if (amount <= 0) {
       return res.status(400).json(new APIError("Amount should be greater than 0", 400));
     }
 
-    const plan = await PlanModel.create({
+    await PlanModel.create({
       planName,
       amount,
       createdBy: req.user.id
@@ -23,12 +23,11 @@ export const CreatePlan = async (req, res) => {
 
     return res
       .status(200)
-      .json(new APIResponse("Plan created successfully!", 200, plan));
+      .json(new APIResponse("Plan created successfully!", 200));
   } catch (error) {
     return res.status(500).json(new APIError("Error: " + error.message, 500));
   }
 };
-
 
 export const DeletePlan = async (req, res) => {
   try {

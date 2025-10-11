@@ -66,7 +66,7 @@ export const CreateTunnel = async (req, res) => {
     if (isPlan.used === true) {
       return res
         .status(400)
-        .json(new APIError("this plan  already in used", 400));
+        .json(new APIError("this plan already in used", 400));
     }
     isPlan.used = true;
     await isPlan.save();
