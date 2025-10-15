@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const BuyPlanSchema = new mongoose.Schema({
+const BuyPlanSchema = new mongoose.Schema({
   planId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Plan",
@@ -38,7 +38,33 @@ export const BuyPlanSchema = new mongoose.Schema({
   },
   transactionId: {
     type:String
-  }
+  },
+   apiCalls: {
+      type: Number,
+      required: true,
+      default:4999
+    },
+    avilableTunnel: {
+      type: Number,
+      required: true,
+      default:1
+    },
+    activeTunnel: {
+      type: Number,
+      required: true,
+      default:1
+    },
+    connections: {
+      type: Number,
+      required: true,
+      default:10
+    },
+    forDay: {
+      type: Number,
+      required: true,
+      default:84
+    },
 }, { timestamps: true });
 
-
+const BuyPlan = mongoose.model("BuyPlan", BuyPlanSchema);
+export default BuyPlan;

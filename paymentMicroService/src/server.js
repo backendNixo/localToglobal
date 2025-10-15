@@ -25,4 +25,4 @@ connectDB();
 
 app.use('/api/payment', planRoutes);
 
-app.listen(7005, () => console.log("Server running on port 7004"));
+app.listen(7005, () => console.log("Server running on port 7005"));

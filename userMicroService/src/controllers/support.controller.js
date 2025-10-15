@@ -23,15 +23,17 @@ export const createSupport = async (req, res) => {
             return res.status(400).json(new APIError("Email Already Exist", 400));
         }
 
-        await SupportModel.create({
+        const support=await SupportModel.create({
             fullname,
             email,
             mobileNumber,
             subject,
             message,
+            isResolved:false,
+            remark:"",
             userId: req.user.id
         })
-
+       await support.save();
         return res.status(200).json(new APIResponse("Message Saved Successfully !", 200))
     } catch (error) {
         console.log(error);
@@ -53,8 +55,33 @@ export const DeleteSupport = async (req, res) => {
         return res.status(200).json(new APIResponse("Message Removed Successfully !", 200))
     } catch (error) {
         console.log(error);
-
         return res.status(500).json(new APIError("Error : " + error.message, 500));
     }
 }
+
+export const ResolveSupport=async(req,res)=>{
+    try {
+        const supportId=req.params.id;
+        if(!supportId){
+             return res.status(400).json(new APIError("Support Id Not Found", 400));
+        }
+        const {remark}=req.body;
+        if(!remark){
+             return res.status(400).json(new APIError("Remark Not Found", 400));
+        }
+        const support=await SupportModel.findOne({_id:supportId});
+        if(!support){
+            return res.status(400).json(new APIError("Support Not Found", 400));
+        }
+
+        support.remark=remark;
+        support.isResolved=true;
+        await support.save();
+          return res.status(200).json(new APIResponse("Support Resolved Successfully !", 200))
+    } catch (error) {
+        return res.status(500).json(new APIError("Error : " + error.message, 500));
+    }
+}
+
+
 

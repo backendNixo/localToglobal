@@ -1,4 +1,3 @@
-import UserModel from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import APIError from "../utils/APIError.js";
 
@@ -20,3 +19,6 @@ export const VerifyToken=async(req,res,next)=>{
     return res.status(401).json(new APIError("Invalid or expired token",401));
     }
 }
+
+
+
