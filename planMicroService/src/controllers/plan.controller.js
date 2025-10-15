@@ -1,7 +1,7 @@
-import PlanModel from "../models/plan.model.js";
+import PlanModel from "../../../sharedDB/models/plan.model.js";
 import APIError from "../utils/APIError.js";
 import APIResponse from "../utils/APIResponse.js";
-import User from "../../../userMicroService/src/models/user.model.js";
+import User from "../../../sharedDB/models/user.model.js";
 // import BuyPlan from "../models/buyPlans.model.js";
 
 export const CreatePlan = async (req, res) => {

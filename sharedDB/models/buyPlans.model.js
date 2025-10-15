@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const BuyPlanSchema = new mongoose.Schema({
+ const BuyPlanSchema = new mongoose.Schema({
   planId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Plan",
@@ -41,4 +41,5 @@ export const BuyPlanSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-
+const BuyPlan=mongoose.model("BuyPlan",BuyPlanSchema);
+export default BuyPlan;

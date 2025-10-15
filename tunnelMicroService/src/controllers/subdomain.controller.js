@@ -1,10 +1,8 @@
-import { BuyPlanSchema } from "../../../planMicroService/src/models/buyPlans.model.js";
-import mongoose from "mongoose";
-import TunnelModel from "../models/tunnel.model.js";
+import BuyPlan from "../../../sharedDB/models/buyPlans.model.js";
+import TunnelModel from "../../../sharedDB/models/tunnel.model.js";
 import APIError from "../utils/APIError.js";
 import APIResponse from "../utils/APIResponse.js";
 
-const BuyPlan = mongoose.model("BuyPlan", BuyPlanSchema);
 
 export const SearchSubdomain = async (req, res) => {
   try {

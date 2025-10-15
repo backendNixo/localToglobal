@@ -1,6 +1,6 @@
 
 import express from "express";
-import { connectDB } from "./config/db.js";
+import { connectDB } from "../../sharedDB/db.js";
 import dotenv from "dotenv";
 import planRoutes from "./routes/plan.route.js";
 import {swaggerSpec} from "../src/config/swagger.js";
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(swaggerSpec));
 
-connectDB();
+connectDB(process.env.MONGO_URI);
 
 app.use('/api/plan',planRoutes);
 

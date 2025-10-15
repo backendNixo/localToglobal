@@ -1,5 +1,5 @@
-import BuyPlan from "../models/buyPlans.model.js";
-import Plan from "../../../planMicroService/src/models/plan.model.js";
+import BuyPlan from "../../../sharedDB/models/buyPlans.model.js";
+import Plan from "../../../sharedDB/models/plan.model.js";
 import APIError from "../utils/APIError.js";
 import APIResponse from "../utils/APIResponse.js";
 import axios from "axios"

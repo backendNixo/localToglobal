@@ -1,4 +1,4 @@
-import SupportModel from "../models/support.model.js";
+import SupportModel from "../../../sharedDB/models/support.model.js";
 import APIError from "../utils/APIError.js";
 import APIResponse from "../utils/APIResponse.js";
 

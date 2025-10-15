@@ -1,4 +1,4 @@
-import UserModel from "../models/user.model.js";
+import UserModel from "../../../sharedDB/models/user.model.js";
 import APIError from "../utils/APIError.js";
 import APIResponse from "../utils/APIResponse.js";
 import { GenerateToken } from "../utils/GenerateToken.js";
