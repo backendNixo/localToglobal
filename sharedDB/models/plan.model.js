@@ -24,7 +24,7 @@ const PlanSchema = new mongoose.Schema(
       default: true,
     },
     expireAt: {
-      type: Date
+      type: Date,
     },
     paymentStatus: {
       type: String,
@@ -34,27 +34,31 @@ const PlanSchema = new mongoose.Schema(
     apiCalls: {
       type: Number,
       required: true,
-      default:4999
+      default: 4999,
     },
     avilableTunnel: {
       type: Number,
       required: true,
-      default:1
+      default: 1,
     },
     activeTunnel: {
       type: Number,
       required: true,
-      default:1
+      default: 1,
     },
     connections: {
       type: Number,
       required: true,
-      default:10
+      default: 10,
     },
     forDay: {
       type: Number,
       required: true,
-      default:84
+      default: 84,
+    },
+    icon: {
+      type: String,
+      default: "",
     },
   },
   { timestamps: true }

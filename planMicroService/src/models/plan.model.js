@@ -56,6 +56,10 @@ const PlanSchema = new mongoose.Schema(
       required: true,
       default:84
     },
+    icon:{
+      type:String,
+      default:""
+    }
   },
   { timestamps: true }
 );

@@ -21,6 +21,7 @@ export const CreatePlan = async (req, res) => {
     await PlanModel.create({
       planName,
       amount,
+      icon:req.body.icon||"",
       createdBy: req.user.id,
     });
 
